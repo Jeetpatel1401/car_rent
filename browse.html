@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car Categories | Explore Car Rental</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: white;
+            padding: 20px 40px;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6f00;
+        }
+
+        /* Filter Bar */
+
+        .filter-bar {
+            text-align: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            color: white;
+            padding: 8px 14px;
+            border: none;
+            margin: 6px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-btn img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #444;
+        }
+
+        .filter-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-btn {
+            background-color: #000000;
+            color: white;
+
+            padding: 10px 18px;
+            border: none;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #444;
+        }
+
+        .car-category-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .car-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .car-card h2 {
+            margin: 16px 0 10px;
+        }
+
+        .car-card p {
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        .car-card button {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .car-card button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+          <a href="homepage.html"><img src="images/logo.png" alt="logo" /></a>  
+            <h1>Rent Cars</h1>
+        </div>
+        <nav>
+            <a href="homepage.html">Home</a>
+            <a href="contectus.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-bar">
+
+
+            <button class="filter-btn" data-filter="all">
+                <img src="./images/logo/all-logo.jpeg" alt="all" /> All
+            </button>
+            <button class="filter-btn" data-filter="mercedes">
+                <img src="./images/logo/Mercedes-Benz-logo.png" alt="Mercedes" /> Mercedes
+            </button>
+            <button class="filter-btn" data-filter="bmw">
+                <img src="./images/logo/bmw.logo.png" alt="BMW" /> BMW
+            </button>
+            <button class="filter-btn" data-filter="nissan">
+                <img src="./images/logo/nissan-logo.png" alt="Nissan" /> Nissan
+            </button>
+            <button class="filter-btn" data-filter="audi">
+                <img src="./images/logo/audi-logo.png" alt="Audi" /> Audi
+            </button>
+            <button class="filter-btn" data-filter="ford">
+                <img src="./images/logo/ford-logo.png" alt="Ford" /> Ford
+            </button>
+            <button class="filter-btn" data-filter="mitsubishi">
+                <img src="./images/logo/bmw.logo.png" alt="Mitsubishi" /> Mitsubishi
+            </button>
+            <button class="filter-btn" data-filter="toyota">
+                <img src="./images/logo/toyota-logo (2).png" alt="Toyota" /> Toyota
+            </button>
+            <button class="filter-btn" data-filter="hyundai">
+                <img src="./images/logo/hyundai-logo.png" alt="Hyundai" /> Hyundai
+            </button>
+            <button class="filter-btn" data-filter="kia">
+                <img src="./images/logo/kia-logo.png" alt="Kia" /> Kia
+            </button>
+            <button class="filter-btn" data-filter="lexus">
+                <img src="./images/logo/lexus-logo.png" alt="Lexus" /> Lexus
+            </button>
+            <button class="filter-btn" data-filter="chevrolet">
+                <img src="./images/logo/Chevrolet-logo.jpg" alt="Chevrolet" /> Chevrolet
+            </button>
+            <button class="filter-btn" data-filter="honda">
+                <img src="./images/logo/honda-logo.png" alt="Honda" /> Honda
+            </button>
+            <button class="filter-btn" data-filter="lamborghini">
+                <img src="./images/logo/lamborghini-logo.png" alt="Lamborghini" /> Lamborghini
+            </button>
+            <button class="filter-btn" data-filter="rolls-royce">
+                <img src="./images/logo/rolls-royce-logo.png" alt="Rolls-Royce" /> Rolls-Royce
+            </button>
+            <button class="filter-btn" data-filter="jeep">
+                <img src="./images/logo/jeep-logo.png" alt="Jeep" /> Jeep
+            </button>
+            <button class="filter-btn" data-filter="mazda">
+                <img src="./images/logo/mazda-logo.png" alt="Mazda" /> Mazda
+            </button>
+            <button class="filter-btn" data-filter="land rover">
+                <img src="./images/logo/Land-Rover-logo.jpg" alt="Land Rover" /> Land Rover
+            </button>
+            <button class="filter-btn" data-filter="porsche">
+                <img src="./images/logo/porsche-logo.png" alt="Porsche" /> Porsche
+            </button>
+
+            <button class="filter-btn" data-filter="volkswagen">
+                <img src="./images/logo/Volkswagen-logo-2019-640x500.jpg" alt="volkswagen" /> Volkswagen
+            </button>
+
+            <button class="filter-btn" data-filter="volvo">
+                <img src="./images/logo/volvo-logo.png" alt="volvo" /> Volvo
+            </button>
+
+            <button class="filter-btn" data-filter="jaguar">
+                <img src="./images/logo/jaguar-logo.png" alt="jaguar" /> Jaguar
+            </button>
+
+            <button class="filter-btn" data-filter="minicooper">
+                <img src="./images/logo/mini-logo.png" alt="minicooper" /> Mini-Cooper
+            </button>
+
+            <button class="filter-btn" data-filter="astonmartin">
+                <img src="./images/logo/aston-martin-logo.png" alt="astonmartin" /> Aston-Martin
+            </button>
+
+            <button class="filter-btn" data-filter="bentley">
+                <img src="./images/logo/bentley-logo.png" alt="bentley" /> Bentley
+            </button>
+
+            <button class="filter-btn" data-filter="fordmustang">
+                <img src="./images/logo/ford-mustang-logo.png" alt="fordmustang" /> Ford-Mustang
+            </button>
+
+            <button class="filter-btn" data-filter="maserati">
+                <img src="./images/logo/maserati-logo.png" alt="maserati" /> Maserati
+            </button>
+
+            <button class="filter-btn" data-filter="cadillac">
+                <img src="./images/logo/cadillac-logo.png" alt="cadillac" /> Cadillac
+            </button>
+
+            <button class="filter-btn" data-filter="ferrari">
+                <img src="./images/logo/ferrari-logo.png" alt="ferrari" /> Ferrari
+            </button>
+            <!-- Add similar for other brands... -->
+        </div>
+
+        <!-- Car Category Cards -->
+        <section class="car-category-container">
+
+            <div class="car-grid" id="car-category-container">
+
+                <!-- Mercedes -->
+                <div class="car-card mercedes">
+                    <img src="./images/mercedes.jpg" alt="Mercedes">
+                    <h2>Mercedes Benz</h2>
+                    <p>Experience Luxury on Wheels</p>
+                    <button>View Cars</button>
+                </div>
+                
+
+
+                <div class="car-card bmw">
+                    <img src="./images/bmw wallpaper.jpg" alt="BMW">
+                    <h2>BMW</h2>
+                    <p>Ultimate Driving Machine</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card nissan">
+                    <img src="./images/nissan-wallpaper.jpg" alt="Nissan">
+                    <h2>Nissan</h2>
+                    <p>Stylish design, great performance, and innovative technology</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card audi">
+                    <img src="./images/audi-wallpaper.jpg" alt="Audi">
+                    <h2>Audi</h2>
+                    <p>Experience the luxury of travel</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card ford">
+                    <img src="./images/ford-wallpaper.jpg" alt="ford">
+                    <h2>Ford</h2>
+                    <p>Performance and reliability</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card mitsubishi">
+                    <img src="./images/mitsubishi-wallpaper.png" alt="mitsubishi">
+                    <h2>Mitsubishi</h2>
+                    <p>Drive your Ambition</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card toyota">
+                    <img src="./images/toyota-wallpaper.jpg" alt="Toyota">
+                    <h2>Toyota</h2>
+                    <p>Focus on the customer's needs</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card hyundai">
+                    <img src="./images/hundai-wallpaper.webp" alt="Hyundai">
+                    <h2>Hyundai</h2>
+                    <p>Drive the Difference</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card kia">
+                    <img src="./images/kia-wallpaper.jpg" alt="Kia">
+                    <h2>Kia</h2>
+                    <p>Movement that inspires</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card lexus">
+                    <img src="./images/lexux-wallpaper.avif" alt="Lexus">
+                    <h2>Lexus</h2>
+                    <p>Luxury, Drive in Style, Effortlessly</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card Chevrolet">
+                    <img src="./images/Chevrolet-wallpaper.png" alt="Chevrolet">
+                    <h2>Chevrolet</h2>
+                    <p>Explore Without Limits</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card honda">
+                    <img src="./images/honda-wallpaper.png" alt="Honda">
+                    <h2>Honda</h2>
+                    <p>Drive Smoothly & Explore Freely</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card lamborghini">
+                    <img src="./images/lamborgini-wallpaper.jpg" alt="Lamborghini">
+                    <h2>Lamborghini</h2>
+                    <p>Luxury Unleased & Thrilling Experience</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card rolls-royce">
+                    <img src="./images/rr-wallpaper.jpeg" alt="Rolls-Royce">
+                    <h2>Rolls-Royce</h2>
+                    <p>Unforgettable Journeys & Unrivaled Luxury</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card jeep">
+                    <img src="./images/jeep-wallpaper.jpg" alt="Jeep">
+                    <h2>Jeep</h2>
+                    <p>Adventure & Versatility</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card land rover">
+                    <img src="./images/range-rover-walpaper.webp" alt="Land Rover">
+                    <h2>Land Rover</h2>
+                    <p>Ruggedness, Adventure & Lexury</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card mazda">
+                    <img src="./images/Mazda-wallpaper.jpg" alt="Mazda">
+                    <h2>Mazda</h2>
+                    <p>Your Adventure Starts Here</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card porsche">
+                    <img src="./images/porshce-911-carrera-wallpaper.jpg" alt="Porsche">
+                    <h2>Porsche</h2>
+                    <p>Luxurious & Thrilling Experience</p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card volkswagen ">
+                    <img src="./images/volkswagen-wallpaper.png" alt="volkswagen">
+                    <h2>volkswagen</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card volvo">
+                    <img src="" alt="volvo">
+                    <h2>Volvo</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card jaguar">
+                    <img src="" alt="jaguar">
+                    <h2>Jaguar</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card minicooper ">
+                    <img src="" alt="minicooper">
+                    <h2>Mini-Cooper</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card astonmartin">
+                    <img src="" alt="astonmartin">
+                    <h2>Aston-Martin</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card bentley">
+                    <img src="" alt="bentley">
+                    <h2>Bentley</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card fordmustang ">
+                    <img src="" alt="fordmustang">
+                    <h2>Ford-Mustang</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card maserati">
+                    <img src="" alt="maserati">
+                    <h2>Maserati</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card cadillac">
+                    <img src="" alt="cadillac">
+                    <h2>Cadillac</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+                <div class="car-card ferrari ">
+                    <img src="" alt="ferrari">
+                    <h2>Ferrari</h2>
+                    <p></p>
+                    <button>View Cars</button>
+                </div>
+
+        </div>
+        </section>
+        <!-- 
+        <script>
+            // Filter functionality
+            const filterBtns = document.querySelectorAll(".filter-btn");
+            const carCards = document.querySelectorAll(".car-card");
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    // Add active class to clicked button
+                    btn.classList.add("active");
+
+                    const filter = btn.getAttribute("data-filter");
+
+                    carCards.forEach(card => {
+                        if (filter === "all" || card.classList.contains(filter)) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        </script> -->
+        <script>
+
+            // Filter functionality
+            document.querySelectorAll(".filter-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    // Remove active class from all buttons
+                    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+
+                    const filter = button.getAttribute("data-filter").toLowerCase();
+                    document.querySelectorAll(".car-card").forEach(card => {
+                        // Clean up class names for consistency
+                        const cardClasses = Array.from(card.classList).map(c => c.toLowerCase());
+                        if (filter === "all" || cardClasses.includes(filter)) {
+                            card.style.display = "block";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        </script>
+</body>
+
+</html>

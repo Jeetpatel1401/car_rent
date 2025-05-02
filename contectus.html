@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: #fefaf3;
+            color: #1a1a1a;
+        }
+
+        header {
+            background: white;
+            padding: 20px 40px;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6f00;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn.primary {
+            background-color: #9f46b8;
+            color: white;
+        }
+
+        .btn.secondary {
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        main {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        main h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffd3ac;
+            padding: 30px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid #e0dcd5;
+        }
+
+        .card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+
+
+
+        .card .btn:hover {
+            background-color: #7b3790;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            main h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Logo" />
+          <h1>Rent cars</h1>
+        </div>
+        <nav>
+          <a href="homepage.html">Home</a>
+        </nav>
+      </header>
+    
+
+    <main>
+        <h2>Contact us</h2>
+        <div class="cards">
+            <div class="card">
+                <i>📞</i>
+                <h3>Talk to a member of our team</h3>
+                <p>We’ll help you to find best, affordable and according to your requirement base best product.</p>
+                <p>Our Helpline number:- 000000000</p>
+                <p>Our members salways ready to help you</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
