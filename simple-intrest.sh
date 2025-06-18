@@ -2,13 +2,15 @@
 
 # Simple Interest Calculator
 
-echo "Enter Principal Amount:"
+echo "Enter Principal amount:"
 read p
+
 echo "Enter Rate of Interest:"
 read r
-echo "Enter Time Period (in years):"
+
+echo "Enter Time (in years):"
 read t
 
-si=$(( (p * r * t) / 100 ))
+si=$(echo "scale=2; ($p * $r * $t) / 100" | bc)
 
-echo "Simple Interest is: $si"
+echo "Simple Interest is: ₹$si"
